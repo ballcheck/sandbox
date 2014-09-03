@@ -47,3 +47,4 @@ group :test do
   gem 'debugger'
 end
 
+gem 'friendly_id', '~> 5.0.4'
