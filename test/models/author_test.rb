@@ -38,6 +38,7 @@ class AuthorTest < ActiveSupport::TestCase
 
     # Then
     assert_equal [ book ], author.books
+
   end
 
   #test "an author without a name cannot be saved" do
@@ -65,5 +66,23 @@ class AuthorTest < ActiveSupport::TestCase
   # or with shoulda gem
   should validate_presence_of :name
 
+  test "can friendly find author by explicit slug" do
+    # Given
+    name = given_a_random_string
+    slug = "john-doe"
+    author = Author.create!( :name => name, :slug => slug )
 
+    # Then
+    assert_equal author, Author.friendly.find( slug )
+  end
+
+  test "can friendly find author by auto slug" do
+    # Given
+    name = "John Doe"
+    slug_to_be = "john-doe"
+    author = Author.create!( :name => name )
+
+    # Then
+    assert_equal author, Author.friendly.find( slug_to_be )
+  end
 end
