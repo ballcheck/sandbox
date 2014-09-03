@@ -1,6 +1,11 @@
 http://apidock.com
-
 http://guides.rubyonrails.org/
 
-http://rubydoc.info/github/thoughtbot/shoulda-context/master/frames
-http://thoughtbot.github.io/shoulda-matchers/v2.6.2/
+shoulda context - http://rubydoc.info/github/thoughtbot/shoulda-context/master/frames
+shoulda matchers - http://thoughtbot.github.io/shoulda-matchers/v2.6.2/
+
+friendly_id - http://norman.github.io/friendly_id/file.Guide.html
+
+rails.vim - http://www.vim.org/scripts/script.php?script_id=1567
+
+generator options - http://railsguides.net/advanced-rails-model-generators/
