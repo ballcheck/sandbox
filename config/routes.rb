@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+  get 'authors/names' => 'authors#names'
+
   resources :authors
 
   resources :cities
+
+
   # gets you show action
   # resource :items
 

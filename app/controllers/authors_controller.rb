@@ -7,4 +7,16 @@ class AuthorsController < ApplicationController
     @author = Author.find( params[:id] )
   end
 
+  def names
+    authors = Author.all
+    names = authors.map( &:name )
+
+    respond_to do |format|
+      format.html{}
+      format.json do
+        render :json => names.to_json
+      end
+    end
+  end
+
 end
