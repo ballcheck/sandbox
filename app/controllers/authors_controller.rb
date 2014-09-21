@@ -14,7 +14,7 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       format.html{}
       format.json do
-        render :json => names.to_json
+        render :json => names; # dont have to call to_json
       end
     end
   end
