@@ -45,6 +45,7 @@ gem 'spring',        group: :development
 group :test do
   gem 'shoulda', '~> 3.5.0'
   gem 'debugger'
+  gem 'mocha', '~> 1.1.0'
 end
 
 gem 'friendly_id', '~> 5.0.4'

@@ -44,4 +44,40 @@ class BookTest < ActiveSupport::TestCase
   # or with shoulda gem
   should validate_presence_of :author
 
+  #-----------
+  # publishing
+  #-----------
+
+  #should have_many :publications
+
+  test "method published?" do
+    # Given
+    book = given_a_book_exists
+
+    # When
+    book.stubs( :publishings ).returns( [] )
+
+    # Then
+    refute book.published?
+
+    # When
+    book.stubs( :publishings ).returns( [ mock ] )
+
+    # Then
+    assert book.published?
+  end
+
+  #test "can publish a book" do
+  #  # Given
+  #  book = given_a_book_exists
+  #  refute book.published?
+
+  #  # When
+  #  book.publish
+
+  #  # Then
+  #  assert book.published?
+  #end
+  
+
 end
