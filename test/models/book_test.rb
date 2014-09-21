@@ -49,10 +49,11 @@ class BookTest < ActiveSupport::TestCase
 
     # When
     book.publish
-    publishing = book.publishings.last
 
     # Then
     assert 1, book.publishings.count
+
+    publishing = book.publishings.last
     assert_equal book, publishing.book
     assert_equal book.author, publishing.author
   end
