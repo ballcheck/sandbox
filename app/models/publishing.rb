@@ -2,5 +2,5 @@ class Publishing < ActiveRecord::Base
   belongs_to :book
   belongs_to :author
 
-  validates_presence_of :publication_date
+  validates :publication_date, presence: true
 end
