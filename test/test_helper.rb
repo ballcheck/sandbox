@@ -41,4 +41,8 @@ class ActiveSupport::TestCase
     # with a seed value.
     SecureRandom.base64
   end
+
+  def given_a_random_date
+    SecureRandom.random_number( 1000 ).days.ago
+  end
 end
