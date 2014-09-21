@@ -16,4 +16,6 @@ class PublishingTest < ActiveSupport::TestCase
   should belong_to :book
   should belong_to :author
   should validate_presence_of :publication_date
+  should validate_presence_of :book
+  should validate_presence_of :author
 end
