@@ -16,15 +16,19 @@ class ActiveSupport::TestCase
 
   def given_an_author_exists( args = {} )
     args[:name] = "Susan Palmer" unless args.has_key?( :name )
-    assert author = Author.create!( args )
-    return author
+    Author.create!( args )
   end
 
   def given_a_book_exists( args = {} )
     args[:title] = given_a_random_string unless args.has_key?( :title )
     args[:author] = given_an_author_exists
-    assert book = Book.create!( args )
-    return book
+    Book.create!( args )
+  end
+
+  def given_a_publishing_exists( args = {} )
+    args[:book] = given_a_book_exists unless args.has_key?( :book )
+    args[:author] = given_an_author_exists unless args.has_key?( :author )
+    Publishing.create!( args )
   end
 
   #---------------
