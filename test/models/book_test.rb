@@ -15,40 +15,15 @@ class BookTest < ActiveSupport::TestCase
     end
   end
 
-  #test "books can have an author" do
-  #  # Given
-  #  book = given_a_book_exists
-  #  author = given_an_author_exists
-
-  #  # When
-  #  assert book.update_attributes!( :author => author )
-
-  #  # Then
-  #  assert_equal author, book.author
-  #end
-
-  # or with shoulda gem
+  # with shoulda gem
   should belong_to :author
-
-  #test "books without an an author are invalid" do
-  #  # Given
-  #  book = given_a_book_exists
-
-  #  # When
-  #  book.author = nil
-
-  #  # Then
-  #  refute book.valid?
-  #end
-
-  # or with shoulda gem
   should validate_presence_of :author
 
   #-----------
   # publishing
   #-----------
 
-  #should have_many :publications
+  should have_many :publishings
 
   test "method published?" do
     # Given
@@ -78,6 +53,5 @@ class BookTest < ActiveSupport::TestCase
   #  # Then
   #  assert book.published?
   #end
-  
 
 end
