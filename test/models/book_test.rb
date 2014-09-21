@@ -30,7 +30,7 @@ class BookTest < ActiveSupport::TestCase
     book = given_a_book_exists
 
     # When
-    book.stubs( :publishings ).returns( [] )
+    refute book.publishings.any?
 
     # Then
     refute book.published?
@@ -42,16 +42,19 @@ class BookTest < ActiveSupport::TestCase
     assert book.published?
   end
 
-  #test "can publish a book" do
-  #  # Given
-  #  book = given_a_book_exists
-  #  refute book.published?
+  test "can publish a book" do
+    # Given
+    book = given_a_book_exists
+    refute book.publishings.any?
 
-  #  # When
-  #  book.publish
+    # When
+    book.publish
+    publishing = book.publishings.last
 
-  #  # Then
-  #  assert book.published?
-  #end
+    # Then
+    assert 1, book.publishings.count
+    assert_equal book, publishing.book
+    assert_equal book.author, publishing.author
+  end
 
 end

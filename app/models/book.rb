@@ -8,4 +8,8 @@ class Book < ActiveRecord::Base
   def published?
     publishings.any?
   end
+
+  def publish
+    publishings.create( :author => author )
+  end
 end
