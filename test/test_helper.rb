@@ -21,7 +21,7 @@ class ActiveSupport::TestCase
   end
 
   def given_a_book_exists( args = {} )
-    args[:title] = "Smiles of a summer night" unless args.has_key?( :title )
+    args[:title] = given_a_random_string unless args.has_key?( :title )
     args[:author] = given_an_author_exists
     assert book = Book.create!( args )
     return book
@@ -32,6 +32,9 @@ class ActiveSupport::TestCase
   #---------------
 
   def given_a_random_string
-    "...here we go round the mulberry bush!"
+    # TODO: if a test fails with a random value we should be able
+    # to run the test again with the same value. This could possibly be achieved
+    # with a seed value.
+    SecureRandom.base64
   end
 end
